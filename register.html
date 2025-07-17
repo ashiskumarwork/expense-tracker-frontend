@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Expense Tracker</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
+        <label for="password">Password</label>
+        <input type="password" id="password" required />
+        <button type="submit">Register</button>
+      </form>
+      <p class="register-switch">
+        Already have an account? <a href="login.html">Login here</a>
+      </p>
+      <div id="registerMessage" class="message"></div>
+    </div>
+    <footer>© 2025 Student Expense Tracker</footer>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/auth.js"></script>
+  </body>
+</html>

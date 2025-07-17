@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Expense Tracker</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Expense Tracker</h1>
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </header>
+    <section class="summary-section">
+      <div class="card summary-card">
+        <div class="summary-label">Total Income</div>
+        <div class="summary-value" id="totalIncome">₹0</div>
+      </div>
+      <div class="card summary-card">
+        <div class="summary-label">Total Expense</div>
+        <div class="summary-value" id="totalExpense">₹0</div>
+      </div>
+      <div class="card summary-card">
+        <div class="summary-label">Balance</div>
+        <div class="summary-value" id="balance">₹0</div>
+      </div>
+    </section>
+    <section class="chart-section">
+      <div class="chart-container">
+        <h2 class="chart-heading">Expense Breakdown</h2>
+        <canvas id="incomeExpenseChart" width="400" height="180"></canvas>
+      </div>
+    </section>
+    <main>
+      <section class="add-expense">
+        <h2>Add / Edit Expense</h2>
+        <form id="expenseForm">
+          <input type="hidden" id="expenseId" />
+          <label for="title">Title</label>
+          <input type="text" id="title" required />
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" required />
+          <label for="type">Type</label>
+          <select id="type" required>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+          <label for="category">Category</label>
+          <input type="text" id="category" required />
+          <label for="date">Date</label>
+          <input type="date" id="date" required />
+          <button type="submit">Save Expense</button>
+          <button type="button" id="cancelEdit" style="display: none">
+            Cancel
+          </button>
+        </form>
+        <div id="expenseMessage" class="message"></div>
+      </section>
+      <section class="expenses-list">
+        <h2>Your Expenses</h2>
+        <div class="filter-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by title or category"
+          />
+          <select id="typeFilter">
+            <option value="all">All Types</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+          <input type="date" id="dateFrom" />
+          <span style="margin: 0 0.3rem">to</span>
+          <input type="date" id="dateTo" />
+          <select id="sortDropdown">
+            <option value="date-desc">Sort by: Newest</option>
+            <option value="date-asc">Oldest</option>
+            <option value="amount-desc">Amount (High-Low)</option>
+            <option value="amount-asc">Amount (Low-High)</option>
+          </select>
+          <button id="exportCsvBtn" type="button">Export to CSV</button>
+        </div>
+        <table id="expensesTable">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Amount</th>
+              <th>Type</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Expenses will be rendered here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <footer>© 2025 Student Expense Tracker</footer>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts/expenses.js"></script>
+  </body>
+</html>
