@@ -3,7 +3,7 @@ const BACKEND_URL =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1"
     ? "http://localhost:5000"
-    : "https://expense-tracker-backend-8a70.onrender.com/";
+    : "https://expense-tracker-backend-8a70.onrender.com";
 
 // Helper function to make authenticated fetch requests
 function fetchWithAuth(url, options = {}) {
